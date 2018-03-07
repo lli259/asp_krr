@@ -54,6 +54,8 @@ cares(X,Y):-parent(X,Y), not ab(d_cares(X,Y)), not -cares(X,Y).
 -absent(alice).
 ab(d_cares(P,C)) :-person(P), person(C), not -absent(P).
 
+%strong exception:
+%-care(john,X):-parent(john,X).
 
 
 #show cares/2.
