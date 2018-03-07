@@ -2,8 +2,6 @@
 
 %Sam needs extra help to pass the class.
 %You expect his father, John, to help him.
-
-
 person(john;sam;alice).
 father(john,sam).
 mother(alice,sam).
@@ -46,17 +44,30 @@ cares(X,Y):-parent(X,Y), not ab(d_cares(X,Y)), not -cares(X,Y).
 %if parent has never been seen at school, don't apply care.
 %test:
 %-absent(alice).   -> care
-%absent(alice).    -> unknown
-%unknown           -> unknown
+%absent(alice).    -> unknown, no or unknown?
+%unknown           -> unknown, no or unknown?
 %cares(alice,sam).
 %-cares(alice,sam).
 
--absent(alice).
+%-absent(alice).
 ab(d_cares(P,C)) :-person(P), person(C), not -absent(P).
 
 %strong exception:
-%-care(john,X):-parent(john,X).
+-cares(P,X):-parent(P,X),born_in(P,u).
+ab(d_cares(P,X)) :- person(P), person(X),not -born_in(P,u).
 
+person(pit;kathy;jim).
+father(pit,jim).
+mother(kathy,jim).
+country(u;moldova).
+born_in(kathy,moldova).
+
+-born_in(P,X):-country(X),born_in(P,Y),X!=Y.
+-absent(pit).
+-absent(kathy).
+%show cares(pit,jim) with/without the strong exception.
+%with: unknown.
+%without: yes  (don't work if using -cares(pit,jim) to check sat.)
 
 #show cares/2.
 
