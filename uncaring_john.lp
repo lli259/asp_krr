@@ -26,8 +26,8 @@ child(X,Y):-parent(Y,X).
 %		john is abnormal.
 %--------------------------------------------------
 
-cares(X,Y):-parent(X,Y), not ab(d_cares(X,Y)), not -cares(X,Y).
-%cares(X,Y):-parent(X,Y),  not -cares(X,Y).
+%cares(X,Y):-parent(X,Y), not ab(d_cares(X,Y)), not -cares(X,Y).
+cares(X,Y):-parent(X,Y),  not -cares(X,Y).
 
 
 #show cares/2.
