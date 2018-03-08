@@ -44,8 +44,8 @@ cares(X,Y):-parent(X,Y), not ab(d_cares(X,Y)), not -cares(X,Y).
 %if parent has never been seen at school, don't apply care.
 %test:
 %-absent(alice).   -> care
-%absent(alice).    -> unknown, no or unknown?
-%unknown           -> unknown, no or unknown?
+%absent(alice).    -> unknown
+%unknown           
 %cares(alice,sam).
 %-cares(alice,sam).
 
