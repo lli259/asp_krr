@@ -4,9 +4,13 @@ value(1..3).
 
 %we should give some model candidates so that solver
 %will remember the solutions and find one for us.
-{z(X):-value(X)}.
+1{z(X):value(X)}1.
 #minimize{Y:z(Y)}.
-#show z/1.
+#show z/1
+
+
+
+
 
 %minimize
 %===
